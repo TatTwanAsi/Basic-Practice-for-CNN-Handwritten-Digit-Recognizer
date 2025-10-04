@@ -20,10 +20,10 @@ def train(model, device):
     optimizer = torch.optim.Adam(model.parameters(), lr = 0.005)
     loss_list = []
 
-    for epoch in range(2):
+    for epoch in range(10):
         print(f"epoch{epoch+1}")
         loss_sum = 0
-        progress_bar = tqdm(trainset_loader, desc = "training progress")
+        # progress_bar = tqdm(trainset_loader, desc = "training progress")
         start_time = time.time()
         for i, batch in enumerate(trainset_loader, 1):
             features, labels = batch
@@ -37,8 +37,8 @@ def train(model, device):
             loss.backward()
             optimizer.step()
 
-            avg_loss = loss_sum / i
-            progress_bar.set_postfix({'Loss': f'{avg_loss:.3f}'})
+            # avg_loss = loss_sum / i
+            # progress_bar.set_postfix({'Loss': f'{avg_loss:.3f}'})
 
         end_time = time.time()
         average_loss = loss_sum/len(trainset_loader)

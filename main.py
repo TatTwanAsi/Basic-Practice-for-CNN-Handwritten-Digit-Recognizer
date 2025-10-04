@@ -13,13 +13,13 @@ def main():
     model = CNN()
 
     # region: model loading
-    load_weight(model, "CNN_model.pth", device)
+    # load_weight(model, "CNN_model.pth", device)
     # endregion
     
     # region: model training
-    # model, loss_list = train(model, device)
-    # save_weight(model, "CNN_model.pth")
-    # plot(loss_list)
+    model, loss_list = train(model, device)
+    save_weight(model, "CNN_model.pth")
+    plot(loss_list)
     # endregion
 
     # region: model prediction accuracy test
@@ -27,8 +27,8 @@ def main():
     # endregion
     
     # region: GUI for handwritten digit prediction
-    draw = Draw(device, model)
-    draw.run()
+    # draw = Draw(device, model)
+    # draw.run()
     # endregion
 
 if __name__ == "__main__":
